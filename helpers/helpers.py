@@ -28,6 +28,9 @@ def init_random_spins(N, num_dimensions=2):
     if num_dimensions == 2:
         matrix = np.random.randint(0, 2, size=(N, N))
         return matrix
+    elif num_dimensions == 1:
+        matrix = np.random.randint(0, 2, size=(N, 1))
+        return matrix
 
 
 # debugging
@@ -42,3 +45,11 @@ if __name__ == "__main__":
     spins = init_random_spins(N, num_dimensions)
     print("\nRandom Spin Configuration:")
     print(spins)
+
+    num_dimensions = 1
+    spins = init_random_spins(N, num_dimensions)
+    print("\nRandom Spin Configuration (1D):")
+    print(spins)
+    spins_flat = spins.flatten()
+    print("\nRandom Spin Configuration (flattened):")
+    print(spins_flat)
